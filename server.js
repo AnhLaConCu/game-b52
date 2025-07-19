@@ -1,6 +1,13 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// ⚙️ Cho phép CORS từ web tool
+app.use(cors({
+  origin: "https://tooltxsieuvip.site",
+  methods: ["GET"]
+}));
 
 // Biến lưu kết quả mới nhất
 let latestResult = {
@@ -25,6 +32,7 @@ app.listen(PORT, () => {
   console.log("Server HTTP sống tại cổng", PORT);
 });
 
+// ------------------- WebSocket ---------------------
 const WebSocket = require("ws");
 
 const WS_URL = "wss://minybordergs.weskb5gams.net/websocket";
